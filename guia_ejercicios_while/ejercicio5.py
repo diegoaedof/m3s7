@@ -17,11 +17,14 @@ while True:
         #instrucciones para agregar producto
         #Se solicita ingreso de datos al usuario
         producto = input("Ingrese un nombre de producto:\n")
-        cantidad = int(input("Ingresa la cantidad del producto: \n"))
-        #Se crea la clave y se asigna un valor en el diccionario
-        inventario[producto] = cantidad
-        #Se muestra un mensaje de confirmación al usuario
-        print(f"Producto {producto} fue añadido exitosamente. ")
+        if producto in inventario:
+            print(f"{producto} ya existe en el inventario.")
+        else:
+            cantidad = int(input("Ingresa la cantidad del producto: \n"))
+            #Se crea la clave y se asigna un valor en el diccionario
+            inventario[producto] = cantidad
+            #Se muestra un mensaje de confirmación al usuario
+            print(f"Producto {producto} fue añadido exitosamente. ")
     elif opcion == 2:
         #instrucciones para actualizar la cantidad
         producto = input("Ingrese un nombre de producto a actualizar:\n")
@@ -41,7 +44,18 @@ while True:
 
     elif opcion == 4:
         #instrucciones para mostrar invwentario
-        print(inventario)
+        if not inventario:
+            print("El inventario está vacío.")
+        else:
+            print("Productos            Cantidad")
+            productos = list(inventario.keys())
+            cantidades = list(inventario.values())
+            indice = 0
+
+            while indice < len(productos):
+                print(f"{productos[indice]}      :      {cantidades[indice]}")
+                indice += 1
+
     elif opcion == 5:
         print("Has salido del menú.")
         break
@@ -49,6 +63,6 @@ while True:
         print("Por favor, ingresa un número entre 1 y 5.")
     
     input("Presione Enter para continuar.")
-    system("cls")
+    system("clear")
 
 

@@ -12,6 +12,7 @@ Ingresa el nombre del producto que deseas buscar o 'salir' para terminar: pera
 Producto no encontrado. 
 Ingresa el nombre del producto que deseas buscar o 'salir' para terminar: salir
 """
+
 inventario = {
     "polera":20
 }
